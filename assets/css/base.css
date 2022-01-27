@@ -1,0 +1,192 @@
+:root {
+    --primary-color : #f5402d;
+    --price-color : #ee4d2d;;
+    --white-color : white;
+    --black-color : black;
+    --text-color : #333;
+    --star-color : #ffce3d;
+    --sale-color : #f9d237;
+    --menu-bars-color : #212529;
+    --menu-text-color : #f9f7ef;
+
+
+    --nav-height : 28px;
+    --header-height : 120px;
+    --header-with-search-height : calc(var(--header-height) - var(--nav-height));
+    --header-sort-bar-height : 46px;
+}
+
+* {
+    box-sizing : inherit;
+    box-sizing : border-box;
+}
+
+html {
+    /* HACK */
+    font-size : 62.5%;
+    line-height : 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing : border-box;
+}
+
+
+/* Responsive */
+
+.grid__row {
+    display : flex;
+    flex-wrap : wrap;
+    margin-left : -5px;
+    margin-right : -5px;
+}
+
+/* TEST */
+.grid__column-2 {
+    padding-left : 5px;
+    padding-right : 5px;
+    width : 16.6667%;
+}
+
+.grid__column-10 {
+    padding-left : 5px;
+    padding-right : 5px;
+    width : 83.3334%;
+}
+
+/* Hiển thị 5 ông sản phẩm */
+.grid__column-2-4 {
+    width : 20%;
+    padding-left : 5px;
+    padding-right : 5px;
+}
+
+/* animation */
+
+
+/* làm hiện lên từ từ  */
+@keyframes fadeIn {
+    from {
+         opacity : 0;
+    }
+    to {
+        opacity : 1;
+    }
+}
+
+
+/* làm thông báo hiện góc chéo 45 độ */
+@keyframes headerNotifyGrowth {
+   from {
+       /* scale nở ra */
+       opacity : 0;
+       transform : scale(0);
+   }
+   to {
+       opacity : 1;
+       transform : scale(1);
+   }
+}
+
+@keyframes Growth {
+    from {
+        /* scale nở ra */
+        opacity : 0;
+        transform : scale(0.3);
+    }
+    to {
+        opacity : 1;
+        transform : scale(1);
+    }
+ }
+
+@keyframes down {
+    from {
+        opacity : 0;
+    }
+    to {
+        opacity : 1;
+    }
+}
+
+
+
+
+/* Làm modal cho phân đăng kí */
+.modal {
+    position : fixed;
+    top : 0;
+    bottom : 0;
+    left : 0;
+    right : 0;
+    display : flex;
+
+    animation : fadeIn linear 0.1s;
+}
+
+/* lớp phủ */
+.modal__overlay {
+    position : absolute;
+    width : 100%;
+    height : 100%;
+    background-color : rgba(0,0,0,0.3);
+}
+
+.modal__body {
+    border-radius : 5px;
+    background-color : var(--white-color);
+    margin : auto;
+    position : relative;
+    
+    animation : Growth linear 0.2s;
+}
+
+
+/* btn */
+.btn {
+   min-width : 140px;
+   height : 36px;
+   border : none;
+   border-radius : 2px;
+   font-size : 1.3rem;
+   line-height : 36px;
+   cursor : pointer;
+   text-decoration : none;
+   display : inline-flex; 
+   align-items : center;
+   justify-content : center;
+   background-color : white;
+}
+
+.btn.btn--normal:hover {
+    background-color : rgba(0,0,0,0.05);
+}
+
+/* không cách là nó sẽ select tới thẻ mà có cả 2 class này */
+.btn.btn--primary {
+     background-color : #ee4d2d;
+     color : var(--white-color);
+}
+
+.btn--s {
+    font-size : 1.2rem;
+    height : 32px;
+   
+}
+
+.btn--white {
+    color : var(--text-color);
+    background-color : var(--white-color);
+}
+
+/* select-input */
+.select-input {
+    position : relative;
+    height : 34px;
+    padding : 0 12px;
+    border-radius : 2px;
+    background-color : var(--white-color);
+    min-width : 200px;
+    display : flex;
+    align-items : center;
+    justify-content : space-between;
+    cursor : pointer;
+}

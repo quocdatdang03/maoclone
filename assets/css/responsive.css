@@ -1,0 +1,189 @@
+/* Tablet and mobile*/
+@media (max-width : 1023px) {
+    .hide-on-mobile-tablet {
+        display : none;
+    }
+
+    :root {
+        --nav-height : 0px;
+        --header-height : 100px;
+        --header-with-search-height : calc(var(--header-height) - var(--nav-height));
+    }
+
+    .header {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+       }
+
+     .header__cart-list {
+        left: 0px; 
+        position: fixed;
+        top: var(--header-height);
+        right : 0px;
+        background-color: var(--white-color);
+        width: 100%;
+        cursor: default;
+        transform-origin: calc(100% - 15px) top;
+        animation: headerNotifyGrowth ease-in 0.2s;
+        will-change: opacity, transform;
+        z-index: 1;
+        margin-top : 0px;
+        padding : 0 calc((100% - 664px)/2);
+    } 
+
+    .header__cart-list::before {
+        display : none;
+    }
+
+    .container {
+        margin-top : calc(var(--header-height) + var(--header-sort-bar-height));
+    }
+
+    .header__mobile-menu {
+        display : block;
+    }
+
+    .header-with-search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header__sort-bar-list {
+        display : flex;
+    }
+
+    .content-enter {
+        padding-top : 8px;
+    }
+
+    .mobile-category {
+        display : flex;
+    }
+
+}
+
+/* Tablet */
+@media (min-width : 740px) and (max-width : 1023px) {
+   .hide-on-tablet {
+       display : none;
+   }
+
+   .header__mobile-menu {
+       margin-right : 20px;
+   }
+
+}
+
+/* mobile */ 
+@media (max-width : 739px) {
+   .hide-on-mobile {
+       display : none;
+   }
+
+   :root {
+       --header-height : 80px;
+   }
+
+   /* cho nó cách đều nhau vì trước đó nó có display : flex rồi */
+
+   .header-with-search {
+        justify-content : space-between;
+    }
+
+    /* làm phần search cho mobile */
+    .header__search {
+        position: fixed;
+        top: var(--header-height);
+        z-index: 1;
+        right: 0;
+        left: 0;
+        padding : 0 8px;
+        box-shadow : 0 1px 5px rgba(0,0,0,0.3);
+        animation : headerSearchMobile linear 0.3s;
+    }
+
+    .header__mobile-search {
+        display : block;
+    }
+
+    .header__cart,
+    .header__logo {
+      width : unset;
+      margin : 0;
+      line-height : 0;
+    }
+    .header__logo-img {
+        width : 130px;
+    }
+
+    .header__mobile-menu {
+        padding-left : 22px;
+    }
+
+    .pagination-item {
+        margin : 0;
+    }
+
+    .pagination-item-link {
+        min-width : 36px;
+        height : 28px;
+        line-height : 28px;
+        font-size : 1.6rem;
+    }
+
+    .content-enter {
+        margin : 0 4px;
+        padding-top : 8px;
+    }
+
+
+    .footer {
+        width : 100%;
+        text-align : center;
+    }
+
+    .footer__app {
+        display : block;
+    }
+
+
+}
+
+@keyframes headerSearchMobile {
+    from {
+        opacity : 0;
+        top : calc(var(--header-height) / 2);
+    }
+    to {
+        opacity : 1;
+        top : var(--header-height);
+    }
+}
+
+
+/* Các active của input */
+.header__input-check:checked ~ .header__search {
+    /* Ban đầu nó display : flex nên sau cũng phải flex */
+    display : flex;
+}
+
+
+/* active menu bars */
+.header__input-menu   {
+   display : none;
+}
+
+/* active overlay mobile */
+.header__input-menu:checked ~ .overlay-mobile {
+    display : block;
+}
+
+.header__input-menu:checked ~ .header__menu {
+    transform : translateX(0%);
+    opacity : 1;
+}
